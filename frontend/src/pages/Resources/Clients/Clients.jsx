@@ -114,7 +114,7 @@ function Clients() {
   const handleDelete = async (clientId) => {
     if (window.confirm("Are you sure you want to delete this client?")) {
       try {
-        await fetch(`http://localhost:8000/api/v1/clients/${clientId}`, {
+        await fetch(`${process.env.REACT_APP_API_URL}/api/v1/clients/${clientId}`, {
           method: "DELETE",
           credentials: "include",
           headers: {
@@ -192,7 +192,7 @@ function Clients() {
         
         // Delete each selected client
         const deletePromises = checkedItems.map(clientId => 
-          axios.delete(`http://localhost:8000/api/v1/clients/${clientId}`, {
+          axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/clients/${clientId}`, {
             withCredentials: true
           })
         );
@@ -252,7 +252,7 @@ function Clients() {
   const fetchClients = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8000/api/v1/clients/all", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/clients/all`, {
         credentials: 'include',
         headers: {
           "Content-Type": "application/json",

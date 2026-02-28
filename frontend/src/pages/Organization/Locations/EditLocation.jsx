@@ -487,7 +487,7 @@ function EditLocation() {
       try {
         setIsLoading(true);
         const response = await axios.get(
-          `http://localhost:8000/api/v1/locations/${id}`,
+          `${process.env.REACT_APP_API_URL}/api/v1/locations/${id}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -543,7 +543,7 @@ function EditLocation() {
         if (locationData.businessEntities && locationData.businessEntities.length > 0) {
           try {
             const entitiesResponse = await axios.get(
-              "http://localhost:8000/api/v1/organizational-entities/all",
+              `${process.env.REACT_APP_API_URL}/api/v1/organizational-entities/all`,
               {
                 headers: {
                   "Content-Type": "application/json",
@@ -592,7 +592,7 @@ function EditLocation() {
     try {
       setLoadingLocations(true);
       const response = await axios.get(
-        "http://localhost:8000/api/v1/locations/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/locations/all`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -628,7 +628,7 @@ function EditLocation() {
     try {
       setLoadingEmployees(true);
       const response = await axios.get(
-        "http://localhost:8000/api/v1/employees/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/employees/all`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -658,7 +658,7 @@ function EditLocation() {
     try {
       setLoadingEntities(true);
       const response = await axios.get(
-        "http://localhost:8000/api/v1/organizational-entities/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/organizational-entities/all`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -1256,7 +1256,7 @@ function EditLocation() {
       };
 
       const response = await axios.patch(
-        `http://localhost:8000/api/v1/locations/${id}`,
+        `${process.env.REACT_APP_API_URL}/api/v1/locations/${id}`,
         locationData,
         {
           headers: {

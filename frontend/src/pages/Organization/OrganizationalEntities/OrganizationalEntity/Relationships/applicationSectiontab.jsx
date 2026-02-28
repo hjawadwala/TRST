@@ -50,8 +50,8 @@ const ApplicationHeader = ({
     try {
       setIsSaving(true);
       const response = await fetch(
-        // `http://localhost:8000/api/v1/organizational-entities/${id}`,
-        `http://localhost:8000/api/v1/organizational-entities/${businessEntityId}/applications`,
+        // `${process.env.REACT_APP_API_URL}/api/v1/organizational-entities/${id}`,
+        `${process.env.REACT_APP_API_URL}/api/v1/organizational-entities/${businessEntityId}/applications`,
         {
           method: 'PATCH',
           headers: {

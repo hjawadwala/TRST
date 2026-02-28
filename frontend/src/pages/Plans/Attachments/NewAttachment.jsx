@@ -32,7 +32,7 @@ function NewAttachment() {
 
     try {
       // Send POST request to the backend
-      await axios.post("http://localhost:8000/api/v1/attachments/create", formData, {
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/attachments/create`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert("Attachment created successfully!");

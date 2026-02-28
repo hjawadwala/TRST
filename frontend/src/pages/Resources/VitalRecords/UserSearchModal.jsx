@@ -16,7 +16,7 @@ const UserSearchModal = ({ isOpen, toggle, onSelectUsers }) => {
   const fetchEmployees = async () => {
     try {
       const token = localStorage.getItem("authToken");
-      const response = await axios.get("http://localhost:8000/api/v1/employees/all", {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/employees/all`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

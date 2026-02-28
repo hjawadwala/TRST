@@ -17,7 +17,7 @@ function AlternateStaffModal({ isOpen, toggle, onSelect }) {
     try {
       console.log("🔍 Fetching employees...");
   
-      const response = await fetch("http://localhost:8000/api/v1/employees/all", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/employees/all`, {
         method: "GET",
         credentials: "include",
         headers: {

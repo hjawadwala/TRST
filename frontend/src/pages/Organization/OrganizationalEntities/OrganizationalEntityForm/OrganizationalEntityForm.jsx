@@ -196,7 +196,7 @@ const handleSelectedApplications = (ids) => {
       };
 
       const response = await axios.post(
-        "http://localhost:8000/api/v1/organizational-entities/create",
+        `${process.env.REACT_APP_API_URL}/api/v1/organizational-entities/create`,
         payload
       );
 
@@ -243,7 +243,7 @@ const handleSelectedApplications = (ids) => {
     try {
       setLoading(true);
       const response = await axios.get(
-        "http://localhost:8000/api/v1/organizational-entities/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/organizational-entities/all`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -312,7 +312,7 @@ const handleSelectedApplications = (ids) => {
     try {
       setUserLoading(true);
       const response = await axios.get(
-        "http://localhost:8000/api/v1/users/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/users/all`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -388,7 +388,7 @@ const handleSelectedApplications = (ids) => {
     try {
       setLocationLoading(true);
       const response = await axios.get(
-        "http://localhost:8000/api/v1/locations/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/locations/all`,
         {
           headers: {
             "Content-Type": "application/json",

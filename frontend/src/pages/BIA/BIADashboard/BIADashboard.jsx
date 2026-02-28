@@ -137,7 +137,7 @@ const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 const currentItems = biaData.slice(indexOfFirstItem, indexOfLastItem);
   // Fetch API data when the component mounts
   useEffect(() => {
-    fetch("http://localhost:8000/api/v1/bia-dashboards")
+    fetch(`${process.env.REACT_APP_API_URL}/api/v1/bia-dashboards`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch data");
@@ -204,7 +204,7 @@ const currentItems = biaData.slice(indexOfFirstItem, indexOfLastItem);
       if (button) {
         button.style.transform = 'rotate(360deg)';
       }
-      const response = await fetch("http://localhost:8000/api/v1/bia-dashboards");
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/bia-dashboards`);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }

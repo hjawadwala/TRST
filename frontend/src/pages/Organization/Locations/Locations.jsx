@@ -105,7 +105,7 @@ function Locations() {
       setIsLoading(true);
       setIsLoadingCoordinates(true);
       try {
-        const response = await fetch("http://localhost:8000/api/v1/locations/all", {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/locations/all`, {
           credentials: 'include',
           headers: {
             "Content-Type": "application/json",
@@ -172,7 +172,7 @@ function Locations() {
     if (window.confirm(`Are you sure you want to delete this location?`)) {
       try {
         const response = await axios.delete(
-          `http://localhost:8000/api/v1/locations/${locationId}`,
+          `${process.env.REACT_APP_API_URL}/api/v1/locations/${locationId}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -206,7 +206,7 @@ function Locations() {
     if (window.confirm(`Are you sure you want to delete ${selectedLocations.length} selected item(s)?`)) {
       try {
         const deletePromises = selectedLocations.map(id =>
-          axios.delete(`http://localhost:8000/api/v1/locations/${id}`, {
+          axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/locations/${id}`, {
             headers: {
               "Content-Type": "application/json",
             },
@@ -295,7 +295,7 @@ function Locations() {
     try {
       setIsLoading(true);
       const response = await axios.get(
-        "http://localhost:8000/api/v1/locations/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/locations/all`,
         {
           headers: {
             "Content-Type": "application/json",

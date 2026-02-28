@@ -37,7 +37,7 @@ function Plan() {
   useEffect(() => {
     const fetchPlans = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/v1/plans/all');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/plans/all`);
         console.log(response.data); // Log the response data
         setPlans(response.data); // Assuming the response data is an array of plans
       } catch (error) {
@@ -58,7 +58,7 @@ function Plan() {
   const handleDelete = async (planId) => {
     if (window.confirm("Are you sure you want to delete this plan?")) {
       try {
-        const response = await fetch(`http://localhost:8000/api/v1/plans/delete/${planId}`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/plans/delete/${planId}`, {
           method: 'DELETE', // Use DELETE for removing
         });
 

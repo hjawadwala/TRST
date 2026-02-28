@@ -111,7 +111,7 @@ const currentItems = exercises.slice(indexOfFirstItem, indexOfLastItem);
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch("http://localhost:8000/api/v1/exercises");
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/exercises`);
         const result = await response.json();
 
         if (response.ok) {
@@ -176,7 +176,7 @@ const handleRefresh = async () => {
       if (button) {
         button.style.transform = 'rotate(360deg)';
       }
-      const response = await fetch("http://localhost:8000/api/v1/exercises");
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/exercises`);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }

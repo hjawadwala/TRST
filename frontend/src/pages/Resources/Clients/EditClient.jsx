@@ -323,7 +323,7 @@ function EditClient() {
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:8000/api/v1/clients/${id}`,
+          `${process.env.REACT_APP_API_URL}/api/v1/clients/${id}`,
           {
             withCredentials: true
           }
@@ -378,7 +378,7 @@ function EditClient() {
       }
       
       const response = await axios.patch(
-        `http://localhost:8000/api/v1/clients/${id}`,
+        `${process.env.REACT_APP_API_URL}/api/v1/clients/${id}`,
         formData,
         {
           headers: {

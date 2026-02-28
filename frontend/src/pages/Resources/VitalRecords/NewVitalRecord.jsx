@@ -86,7 +86,7 @@ function NewVitalRecord() {
 
     try {
       // Make the API call
-      const response = await axios.post('http://localhost:8000/api/v1/vital/create', vitalRecordData);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/vital/create`, vitalRecordData);
       setSuccessMessage('Vital Record created successfully!');
       setErrorMessage(''); // Clear any previous error messages
       console.log('Vital Record created successfully:', response.data);

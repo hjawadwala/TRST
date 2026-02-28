@@ -142,7 +142,7 @@ function RiskRegister() {
   const fetchRiskRegisters = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8000/api/v1/risk-registers");
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/risk-registers`);
       if (!response.ok) throw new Error("Network response was not ok");
       const data = await response.json();
       setRiskRegisters(Array.isArray(data) ? data : []);

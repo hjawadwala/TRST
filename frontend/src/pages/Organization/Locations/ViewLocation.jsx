@@ -59,7 +59,7 @@ function ViewLocation() {
     console.log(`Fetching data for location ID: ${id}`);
   
     axios
-      .get(`http://localhost:8000/api/v1/locations/${id}`)
+      .get(`${process.env.REACT_APP_API_URL}/api/v1/locations/${id}`)
       .then((response) => {
         console.log("API Response Data:", response.data);
         setApiData(response.data);

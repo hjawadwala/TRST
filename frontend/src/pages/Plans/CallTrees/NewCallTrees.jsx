@@ -36,7 +36,7 @@ function NewCallTrees() {
 
     try {
       // Make the API call
-      const response = await axios.post("http://localhost:8000/api/v1/call-trees/create", data, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/call-trees/create`, data, {
         headers: {
           "Content-Type": "application/json",
         },

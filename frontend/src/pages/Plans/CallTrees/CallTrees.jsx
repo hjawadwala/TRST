@@ -49,7 +49,7 @@ function CallTrees() {
     useEffect(() => {
       const fetchCallTrees = async () => {
         try {
-          const response = await axios.get("http://localhost:8000/api/v1/call-trees/getall");
+          const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/call-trees/getall`);
     
           console.log("✅ Full API Response:", response);
           console.log("✅ API Data:", response.data || response);
@@ -84,7 +84,7 @@ function CallTrees() {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:8000/api/v1/call-trees/${id}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/call-trees/${id}`);
       alert("Call Tree deleted successfully!");
       setCallTrees(callTrees.filter((callTree) => callTree._id !== id)); // Remove the deleted CallTree from the state
     } catch (error) {

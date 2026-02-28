@@ -15,7 +15,7 @@ function ClientContactsModal({ isOpen, toggle, onSelect }) {
   const fetchContacts = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8000/api/v1/client-contacts/all", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/client-contacts/all`, {
         method: "GET",
         credentials: "include",
         headers: {

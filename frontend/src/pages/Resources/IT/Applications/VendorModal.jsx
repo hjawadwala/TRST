@@ -18,7 +18,7 @@ function VendorModal({ isOpen, toggle, onSelect }) {
       setLoading(true);
       console.log("🔍 Fetching vendors...");
   
-      const response = await axios.get("http://localhost:8000/api/v1/vendors", {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/vendors`, {
         headers: { "Content-Type": "application/json" },
       });
   

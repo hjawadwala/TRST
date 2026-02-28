@@ -517,7 +517,7 @@ function NewEmployee() {
     try {
       setLoading(true);
       const response = await axios.get(
-        "http://localhost:8000/api/v1/organizational-entities/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/organizational-entities/all`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -542,7 +542,7 @@ function NewEmployee() {
     setLoading(true);
     try {
       const response = await fetch(
-        "http://localhost:8000/api/v1/employees/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/employees/all`,
         {
           method: "GET",
           credentials: "include",
@@ -722,7 +722,7 @@ function NewEmployee() {
       console.log("Submitting formatted data:", formattedData);
 
       const response = await axios.post(
-        "http://localhost:8000/api/v1/employees/create",
+        `${process.env.REACT_APP_API_URL}/api/v1/employees/create`,
         formattedData,
         {
           headers: {
@@ -782,7 +782,7 @@ function NewEmployee() {
     try {
       setUserLoading(true);
       const response = await axios.get(
-        "http://localhost:8000/api/v1/employees/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/employees/all`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -1317,7 +1317,7 @@ function NewEmployee() {
     try {
       setLocationLoading(true);
       const response = await axios.get(
-        "http://localhost:8000/api/v1/locations/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/locations/all`,
         {
           headers: {
             "Content-Type": "application/json",

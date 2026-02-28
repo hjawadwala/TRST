@@ -48,7 +48,7 @@ function NewHardware() {
     };
 
     try {
-      const response = await axios.post('http://localhost:8000/api/v1/hardware/create', hardwareData);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/hardware/create`, hardwareData);
       console.log('Hardware created:', response.data);
       
       // Display success message

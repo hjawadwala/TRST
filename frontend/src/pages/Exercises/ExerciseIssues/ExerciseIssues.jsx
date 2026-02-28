@@ -34,7 +34,7 @@ function ExerciseIssues() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/v1/exercise-issues");
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/exercise-issues`);
 
         console.log("Full API Response:", response);
         console.log("Response Data:", response.data);

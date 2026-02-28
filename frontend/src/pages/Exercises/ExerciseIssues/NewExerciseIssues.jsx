@@ -29,7 +29,7 @@ function NewExerciseIssues() {
     try {
       console.log("Submitting form..."); // Debugging
       const response = await axios.post(
-        "http://localhost:8000/api/v1/exercise-issues/create",
+        `${process.env.REACT_APP_API_URL}/api/v1/exercise-issues/create`,
         formData
       );
       console.log("API Response:", response.data); // Debugging

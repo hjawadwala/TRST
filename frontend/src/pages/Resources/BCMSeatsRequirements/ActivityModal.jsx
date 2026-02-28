@@ -16,7 +16,7 @@ function ActivityModal({ isOpen, toggle, onSelect }) {
   const fetchActivities = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:8000/api/v1/activities");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/activities`);
 
       let activityData = [];
       if (Array.isArray(response.data)) {

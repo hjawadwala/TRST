@@ -89,7 +89,7 @@ const [showVendorModal, setShowVendorModal] = useState(false);
   
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/applications/create",
+        `${process.env.REACT_APP_API_URL}/api/v1/applications/create`,
         formData,
         {
           headers: { "Content-Type": "application/json" },

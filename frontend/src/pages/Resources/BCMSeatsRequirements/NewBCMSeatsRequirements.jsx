@@ -79,7 +79,7 @@ function NewBCMSeatsRequirements() {
     console.log("Submitting data:", data); // Log the data being submitted
   
     try {
-      const response = await axios.post("http://localhost:8000/api/v1/bcm-seats-requirements/create", data, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/bcm-seats-requirements/create`, data, {
         headers: {
           "Content-Type": "application/json",
         },

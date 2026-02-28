@@ -57,7 +57,7 @@ function ClientContacts() {
   // Fetch contacts
   const fetchContacts = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/v1/client-contacts/all", {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/client-contacts/all`, {
         withCredentials: true
       });
       setContacts(response.data);
@@ -182,7 +182,7 @@ function ClientContacts() {
     if (!window.confirm("Are you sure you want to delete this contact?")) return;
     
     try {
-      await axios.delete(`http://localhost:8000/api/v1/client-contacts/${contactId}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/client-contacts/${contactId}`, {
         withCredentials: true
       });
       setContacts(prev => prev.filter(contact => contact._id !== contactId));
@@ -196,7 +196,7 @@ function ClientContacts() {
       try {
         await Promise.all(
           selectedContacts.map(id => 
-            axios.delete(`http://localhost:8000/api/v1/client-contacts/${id}`, {
+            axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/client-contacts/${id}`, {
               withCredentials: true
             })
           )
@@ -229,7 +229,7 @@ function ClientContacts() {
   const handleDeleteClick = async (contactId) => {
     if (window.confirm("Are you sure you want to delete this client?")) {
       try {
-        await fetch(`http://localhost:8000/api/v1/client-contacts/${contactId}`, {
+        await fetch(`${process.env.REACT_APP_API_URL}/api/v1/client-contacts/${contactId}`, {
           method: "DELETE",
           credentials: "include",
           headers: {

@@ -54,7 +54,7 @@ function Attachments() {
   useEffect(() => {
     const fetchAttachments = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/v1/attachments/getall");
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/attachments/getall`);
         
         console.log("🔍 Full API Response:", response);
        
@@ -76,7 +76,7 @@ function Attachments() {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:8000/api/v1/attachments/delete/${id}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/attachments/delete/${id}`);
       alert("Attachment deleted successfully!");
 
       // Update the state to remove the deleted attachment

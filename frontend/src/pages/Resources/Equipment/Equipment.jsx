@@ -38,7 +38,7 @@ function Equipment() {
     const fetchEquipmentRecords = async () => {
         setLoading(true); // Set loading to true before fetching
         try {
-            const response = await axios.get('http://localhost:8000/api/v1/equipment'); // Adjust the URL as needed
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/equipment`); // Adjust the URL as needed
             console.log("Fetched data:", response.data); // Log the fetched data
             setEquipmentRecords(response.data); // Directly set the equipment records from the response
         } catch (error) {
@@ -52,7 +52,7 @@ function Equipment() {
       if (!window.confirm("Are you sure you want to delete this equipment?")) return;
     
       try {
-        await axios.delete(`http://localhost:8000/api/v1/equipment/${id}`);
+        await axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/equipment/${id}`);
         alert("Equipment deleted successfully!");
         fetchEquipmentRecords(); // Refresh the list after deletion
       } catch (error) {

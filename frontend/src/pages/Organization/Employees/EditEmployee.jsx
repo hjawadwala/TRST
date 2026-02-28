@@ -492,7 +492,7 @@ function EditEmployee() {
     try {
       setLoading(true);
       const response = await axios.get(
-        "http://localhost:8000/api/v1/organizational-entities/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/organizational-entities/all`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -517,7 +517,7 @@ function EditEmployee() {
     setLoading(true);
     try {
       const response = await fetch(
-        "http://localhost:8000/api/v1/employees/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/employees/all`,
         {
           method: "GET",
           credentials: "include",
@@ -662,7 +662,7 @@ function EditEmployee() {
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:8000/api/v1/employees/${employeeId}`,
+          `${process.env.REACT_APP_API_URL}/api/v1/employees/${employeeId}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -813,7 +813,7 @@ function EditEmployee() {
       console.log("Submitting formatted data:", formattedData);
 
       const response = await axios.patch(
-        `http://localhost:8000/api/v1/employees/${employeeId}`,
+        `${process.env.REACT_APP_API_URL}/api/v1/employees/${employeeId}`,
         formattedData,
         {
           headers: {
@@ -873,7 +873,7 @@ function EditEmployee() {
     try {
       setUserLoading(true);
       const response = await axios.get(
-        "http://localhost:8000/api/v1/employees/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/employees/all`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -1416,7 +1416,7 @@ function EditEmployee() {
     try {
       setLocationLoading(true);
       const response = await axios.get(
-        "http://localhost:8000/api/v1/locations/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/locations/all`,
         {
           headers: {
             "Content-Type": "application/json",

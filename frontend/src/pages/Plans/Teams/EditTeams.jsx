@@ -28,7 +28,7 @@ function EditTeams() {
   useEffect(() => {
     const fetchTeam = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/v1/teams/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/teams/${id}`);
         const teamData = response.data.data;
         setPlan(teamData.plan || "");
         setApplications(teamData.applications || []);
@@ -60,7 +60,7 @@ function EditTeams() {
     };
 
     try {
-      await axios.put(`http://localhost:8000/api/v1/teams/${id}`, data, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/v1/teams/${id}`, data, {
         headers: {
           "Content-Type": "application/json",
         },

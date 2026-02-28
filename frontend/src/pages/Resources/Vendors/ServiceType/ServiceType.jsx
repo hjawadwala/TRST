@@ -33,7 +33,7 @@ function ServiceType() {
   useEffect(() => {
     const fetchServiceTypes = async () => {
       const response = await axios.get(
-        "http://localhost:8000/api/v1/service-types/all"
+        `${process.env.REACT_APP_API_URL}/api/v1/service-types/all`
       );
       setServiceTypes(response.data);
     };
@@ -69,7 +69,7 @@ function ServiceType() {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this service type?")) {
       try {
-        await axios.delete(`http://localhost:8000/api/v1/service-types/${id}`);
+        await axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/service-types/${id}`);
         setServiceTypes(prev => prev.filter(st => st._id !== id));
       } catch (error) {
         console.error("Error deleting service type:", error);

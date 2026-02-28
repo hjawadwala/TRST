@@ -48,7 +48,7 @@ function NewRisk() {
     setErrorMessage("");
 
     try {
-      const response = await fetch("http://localhost:8000/api/v1/threats/create", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/threats/create`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

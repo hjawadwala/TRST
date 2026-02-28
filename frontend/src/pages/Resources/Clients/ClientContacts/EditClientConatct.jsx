@@ -108,7 +108,7 @@ function EditClientContact() {
 
     try {
       const response = await axios.patch(
-        `http://localhost:8000/api/v1/client-contacts/${id}`,
+        `${process.env.REACT_APP_API_URL}/api/v1/client-contacts/${id}`,
         formData,
         {
           headers: {
@@ -138,7 +138,7 @@ function EditClientContact() {
       try {
         // Fetch the client contact
         const response = await axios.get(
-          `http://localhost:8000/api/v1/client-contacts/${id}`,
+          `${process.env.REACT_APP_API_URL}/api/v1/client-contacts/${id}`,
           { withCredentials: true }
         );
         
@@ -162,7 +162,7 @@ function EditClientContact() {
         if (contact.clients && contact.clients.length > 0) {
           const clientPromises = contact.clients.map(clientId =>
             axios.get(
-              `http://localhost:8000/api/v1/clients/${clientId._id}`,
+              `${process.env.REACT_APP_API_URL}/api/v1/clients/${clientId._id}`,
               { withCredentials: true }
             )
           );

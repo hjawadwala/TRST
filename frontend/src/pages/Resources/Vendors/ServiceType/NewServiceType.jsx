@@ -36,7 +36,7 @@ function NewServiceType() {
   const handleSubmit = async (e) => {
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/service-types/create",
+        `${process.env.REACT_APP_API_URL}/api/v1/service-types/create`,
         formData,
         {
           withCredentials: true,

@@ -45,7 +45,7 @@ const RelatedBusinessEntity = ({ locationId, data }) => {
       setBusinessEntities(data.businessEntitiesRelationships);
     } else if (locationId) {
       axios
-        .get(`http://localhost:8000/api/v1/locations/${locationId}`)
+        .get(`${process.env.REACT_APP_API_URL}/api/v1/locations/${locationId}`)
         .then((res) => {
           setBusinessEntities(res.data.data.businessEntitiesRelationships || []);
         })

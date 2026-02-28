@@ -33,7 +33,7 @@
           setIsDataLoading(true);
           console.log(`🔍 Fetching equipment with ID: ${id}`); // ✅ Log the ID
       
-          const response = await axios.get(`http://localhost:8000/api/v1/equipment/${id}`);
+          const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/equipment/${id}`);
           console.log("✅ Equipment Data:", response.data); // ✅ Log the API response
       
           const data = response.data.data;
@@ -70,7 +70,7 @@
 
         try {
         setLoading(true);
-        const response = await axios.put(`http://localhost:8000/api/v1/equipment/update/${id}`, updatedData, {
+        const response = await axios.put(`${process.env.REACT_APP_API_URL}/api/v1/equipment/update/${id}`, updatedData, {
             headers: { "Content-Type": "application/json" },
         });
 

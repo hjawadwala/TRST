@@ -55,7 +55,7 @@ function Applications() {
     try {
       console.log("🗑 Deleting application with ID:", id);
   
-      const response = await axios.delete(`http://localhost:8000/api/v1/applications/${id}`);
+      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/applications/${id}`);
       
       console.log("✅ Delete Success:", response.data);
       alert("Application deleted successfully!");
@@ -72,7 +72,7 @@ function Applications() {
   // Fetch applications data from the API
   const fetchApplications = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/v1/applications/getall');
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/applications/getall`);
       setApplications(response.data); // Assuming the response data is an array of applications
     } catch (error) {
       console.error('Error fetching applications:', error);

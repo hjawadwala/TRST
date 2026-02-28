@@ -258,7 +258,7 @@ const handleSelectAll = (e) => {
     if (window.confirm(`Are you sure you want to delete ${selectedLocations.length} selected item(s)?`)) {
       try {
         const deletePromises = selectedLocations.map(id =>
-          axios.delete(`http://localhost:8000/api/v1/locations/${id}`, {
+          axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/locations/${id}`, {
             headers: {
               "Content-Type": "application/json",
             },
@@ -302,7 +302,7 @@ const [selectedLocations, setSelectedLocations] = useState([]);
     try {
       setIsLoading(true);
       const response = await axios.get(
-        "http://localhost:8000/api/v1/locations/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/locations/all`,
         {
           headers: {
             "Content-Type": "application/json",

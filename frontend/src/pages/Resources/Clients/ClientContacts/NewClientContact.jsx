@@ -113,7 +113,7 @@ function NewClientContact() {
       console.log("Submitting form data:", formData);
 
       const response = await axios.post(
-        "http://localhost:8000/api/v1/client-contacts/create",
+        `${process.env.REACT_APP_API_URL}/api/v1/client-contacts/create`,
         formData,
         {
           headers: {

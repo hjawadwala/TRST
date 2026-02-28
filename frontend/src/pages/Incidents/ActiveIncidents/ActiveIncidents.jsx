@@ -38,7 +38,7 @@ function ActiveIncidents() {
   useEffect(() => {
     const fetchIncidents = async () => {
       try {
-        const response = await fetch("http://localhost:8000/api/v1/activeincident/getall");
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/activeincident/getall`);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }

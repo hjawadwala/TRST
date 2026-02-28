@@ -480,7 +480,7 @@ function NewLocation() {
     try {
       setLoadingLocations(true);
       const response = await axios.get(
-        "http://localhost:8000/api/v1/locations/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/locations/all`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -516,7 +516,7 @@ function NewLocation() {
     try {
       setLoadingEmployees(true);
       const response = await axios.get(
-        "http://localhost:8000/api/v1/employees/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/employees/all`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -546,7 +546,7 @@ function NewLocation() {
     try {
       setLoadingEntities(true);
       const response = await axios.get(
-        "http://localhost:8000/api/v1/organizational-entities/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/organizational-entities/all`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -1169,7 +1169,7 @@ function NewLocation() {
       console.log('Submitting location data:', locationData);
 
       const response = await axios.post(
-        "http://localhost:8000/api/v1/locations/create",
+        `${process.env.REACT_APP_API_URL}/api/v1/locations/create`,
         locationData,
         {
           headers: {

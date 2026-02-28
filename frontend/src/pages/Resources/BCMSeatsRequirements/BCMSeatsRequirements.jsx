@@ -32,7 +32,7 @@ function BCMSeatsRequirements() {
   const navigate = useNavigate(); // Use for redirecting on edit
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/v1/bcm-seats-requirements/all")
+    axios.get(`${process.env.REACT_APP_API_URL}/api/v1/bcm-seats-requirements/all`)
       .then((response) => {
         console.log("✅ Full API Response:", response.data);
   
@@ -73,7 +73,7 @@ function BCMSeatsRequirements() {
     if (!window.confirm("Are you sure you want to delete this record?")) return;
   
     try {
-      const response = await axios.delete(`http://localhost:8000/api/v1/bcm-seats-requirements/delete/${id}`);
+      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/bcm-seats-requirements/delete/${id}`);
       console.log("✅ Delete Success:", response.data);
       setBcmSeats(prevSeats => prevSeats.filter(seat => seat._id !== id)); // Remove from state
     } catch (error) {

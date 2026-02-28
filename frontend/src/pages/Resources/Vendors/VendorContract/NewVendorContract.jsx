@@ -71,7 +71,7 @@ function NewVendorContract() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/vendor-contacts/create",
+        `${process.env.REACT_APP_API_URL}/api/v1/vendor-contacts/create`,
         formData
       );
       setSuccess("Vendor contact created successfully!");

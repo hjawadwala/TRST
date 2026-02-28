@@ -14,7 +14,7 @@ function VitalRecords() {
   const [vitalRecords, setVitalRecords] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/v1/vital")
+    fetch(`${process.env.REACT_APP_API_URL}/api/v1/vital`)
       .then((response) => response.json())
       .then((data) => setVitalRecords(data))
       .catch((error) => console.error("Error fetching vital records:", error));

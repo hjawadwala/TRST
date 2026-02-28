@@ -16,7 +16,7 @@ const UserSearchModal = ({ isOpen, toggle, onSelectVendors = () => {} }) => {
 
   const fetchVendors = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/v1/vendors");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/vendors`);
       console.log("Fetched vendors (raw response):", response);
       console.log("Fetched vendors (data):", response?.data || response);
       if (Array.isArray(response.data)) {

@@ -36,7 +36,7 @@
         const fetchData = async () => {
         try {
             setLoading(true);
-            const response = await axios.get(`http://localhost:8000/api/v1/bcm-seats-requirements/${id}`);
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/bcm-seats-requirements/${id}`);
             const data = response.data.data;
             
             setBcmSeatsRequirements(data.bcmSeatsRequirements);
@@ -99,7 +99,7 @@
     
       try {
         const response = await axios.patch(
-          `http://localhost:8000/api/v1/bcm-seats-requirements/upadate/${id}`, // ⚠ Ensure correct endpoint
+          `${process.env.REACT_APP_API_URL}/api/v1/bcm-seats-requirements/upadate/${id}`, // ⚠ Ensure correct endpoint
           updatedData,
           { headers: { "Content-Type": "application/json" } }
         );

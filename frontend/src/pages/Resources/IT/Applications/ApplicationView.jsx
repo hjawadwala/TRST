@@ -87,7 +87,7 @@ function ViewApplications({applicationId}) {
   // useEffect(() => {
   //   const fetchApplication = async () => {
   //     try {
-  //       const response = await axios.get(`http://localhost:8000/api/v1/applications/${id}`);
+  //       const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/applications/${id}`);
   //       const appData = response.data?.data || response.data;
 
   //       if (appData) {
@@ -106,7 +106,7 @@ function ViewApplications({applicationId}) {
   useEffect(() => {
     const fetchApplication = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/v1/applications/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/applications/${id}`);
         const appData = response.data?.data || response.data;
 
         if (appData) {

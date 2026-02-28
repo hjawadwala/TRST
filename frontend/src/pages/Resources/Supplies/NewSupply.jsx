@@ -15,7 +15,7 @@ function NewSupply() {
     e.preventDefault(); // Prevent default form submission behavior
     try {
       // API call to create a new supply
-      const response = await axios.post('http://localhost:8000/api/v1/supplies/create', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/supplies/create`, {
         supplyName,
         description,
         vendors, // Use 'vendors' instead of 'vendor'

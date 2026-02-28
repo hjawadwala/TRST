@@ -16,7 +16,7 @@ const ApplicationModal = ({ isOpen, toggle, onSelect }) => {
   const fetchApplications = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:8000/api/v1/applications/getall");
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/applications/getall`);
       const result = await response.json();
 
       console.log("API Response:", result); // Log the entire response

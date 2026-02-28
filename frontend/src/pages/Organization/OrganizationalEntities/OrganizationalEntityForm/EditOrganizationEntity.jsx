@@ -95,7 +95,7 @@ const EditOrganizationalEntityForm = () => {
     const fetchEntityDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/v1/organizational-entities/${id}`,
+          `${process.env.REACT_APP_API_URL}/api/v1/organizational-entities/${id}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -141,7 +141,7 @@ const EditOrganizationalEntityForm = () => {
 
           // After setting initial values, fetch locations
           const locationsResponse = await axios.get(
-            "http://localhost:8000/api/v1/locations/all",
+            `${process.env.REACT_APP_API_URL}/api/v1/locations/all`,
             {
               headers: {
                 "Content-Type": "application/json",
@@ -162,7 +162,7 @@ const EditOrganizationalEntityForm = () => {
 
           // Fetch users for editors
           const usersResponse = await axios.get(
-            "http://localhost:8000/api/v1/users/all",
+            `${process.env.REACT_APP_API_URL}/api/v1/users/all`,
             {
               headers: {
                 "Content-Type": "application/json",
@@ -215,7 +215,7 @@ const EditOrganizationalEntityForm = () => {
   //   e.preventDefault();
   //   try {
   //     const response = await axios.patch(
-  //       `http://localhost:8000/api/v1/organizational-entities/${id}`,
+  //       `${process.env.REACT_APP_API_URL}/api/v1/organizational-entities/${id}`,
   //       initialValues
   //     );
   //     Toastify({
@@ -250,7 +250,7 @@ const EditOrganizationalEntityForm = () => {
   
     try {
       const response = await axios.patch(
-        `http://localhost:8000/api/v1/organizational-entities/${id}`,
+        `${process.env.REACT_APP_API_URL}/api/v1/organizational-entities/${id}`,
         updatedValues
       );
   
@@ -285,7 +285,7 @@ const EditOrganizationalEntityForm = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        "http://localhost:8000/api/v1/organizational-entities/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/organizational-entities/all`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -356,7 +356,7 @@ const EditOrganizationalEntityForm = () => {
   const fetchUsers = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/v1/users/all"
+        `${process.env.REACT_APP_API_URL}/api/v1/users/all`
       );
       setUsers(response.data.data); // Assuming the response structure
     } catch (error) {
@@ -456,7 +456,7 @@ const EditOrganizationalEntityForm = () => {
     try {
       setLocationLoading(true);
       const response = await axios.get(
-        "http://localhost:8000/api/v1/locations/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/locations/all`,
         {
           headers: {
             "Content-Type": "application/json",

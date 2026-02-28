@@ -21,7 +21,7 @@ function Supplies() {
   const [supplies, setSupplies] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/v1/supplies/getall")
+    fetch(`${process.env.REACT_APP_API_URL}/api/v1/supplies/getall`)
       .then((response) => response.json())
       .then((data) => setSupplies(data))
       .catch((error) => console.error("Error fetching supplies:", error));

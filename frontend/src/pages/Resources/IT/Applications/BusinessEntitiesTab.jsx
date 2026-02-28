@@ -56,7 +56,7 @@ const handleColumnToggle = (columnName) => {
           await Promise.all(
             checkedItems.map((id) =>
               axios.delete(
-                `http://localhost:8000/api/v1/organizational-entities/${id}`,
+                `${process.env.REACT_APP_API_URL}/api/v1/organizational-entities/${id}`,
                 {
                   headers: {
                     "Content-Type": "application/json",
@@ -162,7 +162,7 @@ const handleColumnToggle = (columnName) => {
   // const fetchApplication = async () => {
   //   setLoading(true);
   //   try {
-  //     const response = await axios.get(`http://localhost:8000/api/v1/applications/${id}`);
+  //     const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/applications/${id}`);
   //     const appData = response.data?.data || response.data;
 
   //     if (appData) {
@@ -180,7 +180,7 @@ const handleColumnToggle = (columnName) => {
   const fetchApplication = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:8000/api/v1/applications/${id}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/applications/${id}`);
       const appData = response.data?.data || response.data;
 
       if (appData) {

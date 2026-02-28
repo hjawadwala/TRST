@@ -17,7 +17,7 @@ function EditApprovalGroups() {
   useEffect(() => {
     const fetchGroup = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/v1/plan-approval-groups/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/plan-approval-groups/${id}`);
         console.log("API Response:", response.data); // Debugging
         
         // Change this line
@@ -50,7 +50,7 @@ function EditApprovalGroups() {
     setIsSubmitting(true);
 
     try {
-      await axios.put(`http://localhost:8000/api/v1/plan-approval-groups/${id}`, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/v1/plan-approval-groups/${id}`, {
         planApprovalGroup,
         groupDescription,
       });

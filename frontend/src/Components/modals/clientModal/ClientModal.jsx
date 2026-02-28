@@ -16,7 +16,7 @@ const Client = ({ show, onHide, onSelect }) => {
   const fetchClients = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/v1/clients/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/clients/all`,
         {
           withCredentials: true,
         }

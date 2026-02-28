@@ -36,7 +36,7 @@ function EditServiceType() {
 
   useEffect(() => {
     const fetchServiceType = async () => {
-      const response = await axios.get(`http://localhost:8000/api/v1/service-types/${id}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/service-types/${id}`);
       setFormData(response.data);
     };
     fetchServiceType();
@@ -45,7 +45,7 @@ function EditServiceType() {
   const handleSubmit = async (e) => {
     try {
       const response = await axios.patch(
-        `http://localhost:8000/api/v1/service-types/${id}`,
+        `${process.env.REACT_APP_API_URL}/api/v1/service-types/${id}`,
         formData,
         {
           withCredentials: true,

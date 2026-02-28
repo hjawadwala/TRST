@@ -89,7 +89,7 @@ const OrganizationalEntitiesPage = () => {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/v1/organizational-entities/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/organizational-entities/all`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -183,7 +183,7 @@ const OrganizationalEntitiesPage = () => {
       setIsLoading(true);
       try {
         await axios.delete(
-          `http://localhost:8000/api/v1/organizational-entities/${id}`,
+          `${process.env.REACT_APP_API_URL}/api/v1/organizational-entities/${id}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -221,7 +221,7 @@ const OrganizationalEntitiesPage = () => {
         await Promise.all(
           checkedItems.map((id) =>
             axios.delete(
-              `http://localhost:8000/api/v1/organizational-entities/${id}`,
+              `${process.env.REACT_APP_API_URL}/api/v1/organizational-entities/${id}`,
               {
                 headers: {
                   "Content-Type": "application/json",

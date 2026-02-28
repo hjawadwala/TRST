@@ -63,7 +63,7 @@ function EditPlan() {
   useEffect(() => {
     const fetchPlanData = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/api/v1/plans/${id}`);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/plans/${id}`);
         const data = await response.json();
         if (response.ok) {
           setFormData({
@@ -94,7 +94,7 @@ function EditPlan() {
   // Function to fetch updated plan data
   const fetchUpdatedPlanData = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/api/v1/plans/${id}`);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/plans/${id}`);
       const data = await response.json();
       if (response.ok) {
         setFormData({
@@ -150,7 +150,7 @@ function EditPlan() {
     console.log('Plan data to be sent:', planData); // Log the data being sent
   
     try {
-      const response = await fetch(`http://localhost:8000/api/v1/plans/update/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/plans/update/${id}`, {
         method: 'PUT', // Use PUT for updating
         headers: {
           'Content-Type': 'application/json',

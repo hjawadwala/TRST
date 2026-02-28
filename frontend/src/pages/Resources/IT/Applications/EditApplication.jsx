@@ -55,7 +55,7 @@ function EditApplication() {
 
   const fetchApplicationData = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/api/v1/applications/${id}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/applications/${id}`);
       const app = response.data;
       setApplicationID(app.applicationID);
       setApplicationName(app.applicationName);
@@ -103,7 +103,7 @@ function EditApplication() {
     };
 
     try {
-      await axios.put(`http://localhost:8000/api/v1/applications/${id}`, formData);
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/v1/applications/${id}`, formData);
       setSuccessMessage("Application updated successfully!");
       navigate("/applications");
     } catch (error) {

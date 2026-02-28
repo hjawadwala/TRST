@@ -50,7 +50,7 @@ const EmployeesTab = ({
     setLoading(true);
     try {
       const response = await fetch(
-        "http://localhost:8000/api/v1/employees/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/employees/all`,
         {
           method: "GET",
           credentials: "include",
@@ -86,7 +86,7 @@ const EmployeesTab = ({
       try {
         await Promise.all(
           selectedEmployees.map(id => 
-            axios.delete(`http://localhost:8000/api/v1/employees/${id}`, {
+            axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/employees/${id}`, {
               withCredentials: true
             })
           )

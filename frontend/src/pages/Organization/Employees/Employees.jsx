@@ -117,7 +117,7 @@ function Employees() {
     setLoading(true);
     try {
       const response = await fetch(
-        "http://localhost:8000/api/v1/employees/all",
+        `${process.env.REACT_APP_API_URL}/api/v1/employees/all`,
         {
           method: "GET",
           credentials: "include",
@@ -156,7 +156,7 @@ function Employees() {
   const handleDelete = async (employeeId) => {
     if (window.confirm(`Are you sure you want to delete this employee?`)) {
       try {
-        await fetch(`http://localhost:8000/api/v1/employees/${employeeId}`, {
+        await fetch(`${process.env.REACT_APP_API_URL}/api/v1/employees/${employeeId}`, {
           method: "DELETE",
           credentials: "include",
           headers: {
@@ -195,7 +195,7 @@ function Employees() {
         // Delete all checked items
         await Promise.all(
           checkedItems.map((id) =>
-            axios.delete(`http://localhost:8000/api/v1/employees/${id}`, {
+            axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/employees/${id}`, {
               headers: {
                 "Content-Type": "application/json",
               },
@@ -375,7 +375,7 @@ function Employees() {
       try {
         await Promise.all(
           selectedEmployees.map(id => 
-            axios.delete(`http://localhost:8000/api/v1/employees/${id}`, {
+            axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/employees/${id}`, {
               withCredentials: true
             })
           )

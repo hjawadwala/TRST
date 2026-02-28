@@ -28,7 +28,7 @@ function EditAttachment() {
   
     console.log("📡 Fetching data for ID:", id);
   
-    axios.get(`http://localhost:8000/api/v1/attachments/${id}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/api/v1/attachments/${id}`)
       .then(response => {
         console.log("✅ Full API Response:", response.data);
   
@@ -76,7 +76,7 @@ function EditAttachment() {
   
     try {
       const response = await axios.put(
-        `http://localhost:8000/api/v1/attachments/update/${id}`,
+        `${process.env.REACT_APP_API_URL}/api/v1/attachments/update/${id}`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

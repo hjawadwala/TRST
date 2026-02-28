@@ -29,7 +29,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/users/login",
+        `${process.env.REACT_APP_API_URL}/api/v1/users/login`,
         { username, password },
         { withCredentials: true }
       );

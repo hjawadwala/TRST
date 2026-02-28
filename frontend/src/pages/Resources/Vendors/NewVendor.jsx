@@ -332,7 +332,7 @@ function NewVendor() {
 
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:8000/api/v1/vendors/create', vendorData);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/vendors/create`, vendorData);
       setSuccessMessage('Vendor created successfully!');
       setError('');
       console.log('Vendor created successfully:', response.data);

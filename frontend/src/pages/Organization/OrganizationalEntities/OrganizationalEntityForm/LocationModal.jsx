@@ -19,7 +19,7 @@ function LocationModal({ isOpen, toggle, onSelect }) {
       setLoading(true);
       console.log("🔍 Fetching BCM Sites from API...");
 
-      const response = await axios.get("http://localhost:8000/api/v1/locations/all");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/locations/all`);
 
       console.log("✅ Full API Response:", response.data);
 

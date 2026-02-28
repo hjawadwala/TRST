@@ -57,7 +57,7 @@ const toggleDropdown = () => {
             await Promise.all(
               checkedItems.map((id) =>
                 axios.delete(
-                  `http://localhost:8000/api/v1/organizational-entities/${id}`,
+                  `${process.env.REACT_APP_API_URL}/api/v1/organizational-entities/${id}`,
                   {
                     headers: {
                       "Content-Type": "application/json",

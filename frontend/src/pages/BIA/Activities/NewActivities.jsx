@@ -95,7 +95,7 @@ function NewActivities() {
     console.log("Submitting new activity:", newActivity);
 
     try {
-      const response = await axios.post("http://localhost:8000/api/v1/activities/create", newActivity);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/v1/activities/create`, newActivity);
       setSuccess("Activity created successfully!");
       console.log("API Response:", response.data);
     } catch (error) {

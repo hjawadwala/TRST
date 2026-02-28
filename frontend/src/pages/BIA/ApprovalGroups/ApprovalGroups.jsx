@@ -55,7 +55,7 @@ function ApprovalGroups() {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get("http://localhost:8000/api/v1/approval-groups");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/approval-groups`);
       if (response.data && Array.isArray(response.data.data)) {
         setApprovalGroups(response.data.data);
       } else if (response.data && Array.isArray(response.data)) {

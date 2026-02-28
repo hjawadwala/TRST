@@ -10,7 +10,7 @@ const BIAmodel = ({ isOpen, toggle, onSelect }) => {
 
   const fetchBiaData = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/v1/bia-dashboards");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/bia-dashboards`);
   
       console.log("✅ FULL AXIOS RESPONSE:", response);
       console.log("✅ BIA API Response (data):", response.data);

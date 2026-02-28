@@ -42,7 +42,7 @@ function Threat() {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch("http://localhost:8000/api/v1/threats");
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/threats`);
         const result = await response.json();
 
         if (response.ok) {

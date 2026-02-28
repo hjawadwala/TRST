@@ -39,7 +39,7 @@ function PlanApprovalGroups() {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get("http://localhost:8000/api/v1/plan-approval-groups");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/plan-approval-groups`);
       if (response.data && Array.isArray(response.data.data)) {
         setPlanApprovalGroups(response.data.data);
       } else if (response.data && Array.isArray(response.data)) {
@@ -106,7 +106,7 @@ function PlanApprovalGroups() {
     }
 
     try {
-      await axios.delete(`http://localhost:8000/api/v1/plan-approval-groups/${id}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/v1/plan-approval-groups/${id}`);
       Toastify({
         text: "Plan approval group deleted successfully!",
         duration: 3000,

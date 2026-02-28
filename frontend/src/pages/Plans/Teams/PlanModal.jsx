@@ -11,7 +11,7 @@ function PlanModal({ isOpen, toggle, onSelect }) {
       // Fetch plans when the modal opens
       const fetchPlans = async () => {
         try {
-          const response = await axios.get("http://localhost:8000/api/v1/plans");
+          const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/plans`);
           setPlans(response.data.data); // Assuming the response contains a `data` field
         } catch (error) {
           console.error("Error fetching plans:", error);

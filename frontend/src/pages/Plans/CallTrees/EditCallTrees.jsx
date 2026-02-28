@@ -27,7 +27,7 @@ function EditCallTrees() {
   // Fetch old values when the component loads
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/v1/call-trees/${id}`)
+      .get(`${process.env.REACT_APP_API_URL}/api/v1/call-trees/${id}`)
       .then((response) => {
         const data = response.data;
         setCallTreeName(data.callTreeName);
@@ -56,7 +56,7 @@ function EditCallTrees() {
       vendorContacts: vendorContactsdata,
     };
     try {
-      await axios.put(`http://localhost:8000/api/v1/call-trees/edit/${id}`, data, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/v1/call-trees/edit/${id}`, data, {
         headers: { "Content-Type": "application/json" },
       });
       alert("Call Tree updated successfully!");
